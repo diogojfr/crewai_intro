@@ -8,7 +8,7 @@ class Day04Crew:
 	"""Day04 crew"""
 
 	# ollama_1b = LLM(model="ollama/llama3.2:1b", base_url="http://localhost:11434")
-	ollama_1b = LLM(model="ollama/gemma:2b", base_url="http://localhost:11434")
+	mistral = LLM(model="ollama/mistral:latest", base_url="http://localhost:11434")
 	
 
 	@agent
@@ -17,7 +17,7 @@ class Day04Crew:
 			config=self.agents_config['researcher'],
 			tools=[CustomSerperDevTool(), ScrapeWebsiteTool()], 
 			verbose=True,
-			llm=self.ollama_1b
+			llm=self.mistral
 		)
 
 	@agent
@@ -25,7 +25,7 @@ class Day04Crew:
 		return Agent(
 			config=self.agents_config['reporting_analyst'],
 			verbose=True,
-			llm=self.ollama_1b
+			llm=self.mistral
 		)
 
 	@task
