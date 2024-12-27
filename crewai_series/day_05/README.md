@@ -15,7 +15,7 @@ These steps are organized and executed using a new feature of CrewAI called Flow
         alt="Picture" 
         width="400" 
         height="500" 
-        style="display: block; margin: 0 auto" />
+        style="display: block; margin: 0 auto"/>
 
 ## Installation
 
