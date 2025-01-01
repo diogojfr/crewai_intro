@@ -38,7 +38,7 @@ class Day06Crew:
 	def reporting_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['reporting_task'],
-			output_file='report_day5.md'
+			output_file='report_day6.md'
 		)
 
 	@crew

@@ -30,7 +30,7 @@ class NewsFlow(Flow[News]):
                     This should be 1 - 4 words long.""",
                 },
             ],
-            api_base = "http://localhost:11434"
+            # api_base = "http://localhost:11434"
         )
 
         news_topic = response["choices"][0]["message"]["content"]
@@ -80,7 +80,7 @@ class NewsFlow(Flow[News]):
                     "content": f"Choose the most important news from the following and return it: {input}",
                 },
             ],
-            api_base = "http://localhost:11434"
+            # api_base = "http://localhost:11434"
         )
 
         important_news = response["choices"][0]["message"]["content"]
@@ -105,7 +105,7 @@ class NewsFlow(Flow[News]):
 
 def run_flow():
     flow = NewsFlow()
-    flow.plot("my_flow_plot_day06")
+    # flow.plot("my_flow_plot_day06")
 
     flow.kickoff()
 
@@ -116,7 +116,7 @@ def main():
     while True:
         run_flow()
         print("Flow completed. Sleeping for 60 seconds...")
-        asyncio.sleep(60)
+        time.sleep(60)
 
 if __name__ == "__main__":
     main()
