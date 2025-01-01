@@ -1,21 +1,15 @@
-# Day05  - Daily News Curator Using CrewAI Flow
+# Day06  - Scheduling the Daily News Curator
 
-Welcome to the Day 05 Crew project, powered by [crewAI](https://crewai.com). 
+Welcome to the Day 06 Crew project, powered by [crewAI](https://crewai.com). 
 
-This project automates the process of generating and curating daily news articles.Here's how it works:
+In this project, the same process of researching the latest news about generative AI and saving it as a markdown file is implemented, but now a new agent is added to write the daily news articles using a custom tool. The process is scheduled to repeat every minute and save different markdown files for each iteration, as explained below:
 
 1. **Trending AI Topic**: It starts identifying a trending topic within the field of Artificial Intelligence in the last 24 hours. For this task it was used Mistral model.
 2. **News Generation**: Based on the identified topic, it generates a news article using a crew (a senior research agent and a report analyst agent).
 3. **Best News Selection**: Employing the LLM again, the program analyzes the generated article and chooses the most important news snippet.
-4. **News Saving**: Finally, the chosen news is saved as a markdown file (".md") within a dedicated news directory for future reference.
+4. **News Writing**: A new agent from a custom tool are used to write the chosen news and saved them as a markdown file (".md") within a dedicated news directory for future reference.
+5. **Scheduling**: All of the above steps are repeated after every minute, resulting in different markdown files and updated news.
 
-These steps are organized and executed using a new feature of CrewAI called Flow. It allows you to combine coding tasks and Crews, create event-driven workflows, or connect multiple tasks. The above steps can be seen in the flow diagram below:
-
-<img src="flow-diagram.png" 
-        alt="Picture" 
-        width="400" 
-        height="500" 
-        style="display: block; margin: 0 auto"/>
 
 ## Installation
 
@@ -37,10 +31,10 @@ crewai install
 
 **Add your `OPENAI_API_KEY` into the `.env` file**
 
-- Modify `src/day_05/config/agents.yaml` to define your agents
-- Modify `src/day_05/config/tasks.yaml` to define your tasks
-- Modify `src/day_05/crew.py` to add your own logic, tools and specific args
-- Modify `src/day_05/main.py` to add custom inputs for your agents and tasks
+- Modify `src/day_06/config/agents.yaml` to define your agents
+- Modify `src/day_06/config/tasks.yaml` to define your tasks
+- Modify `src/day_06/crew.py` to add your own logic, tools and specific args
+- Modify `src/day_06/main.py` to add custom inputs for your agents and tasks
 
 ## Running the Project
 
@@ -50,13 +44,13 @@ To kickstart your crew of AI agents and begin task execution, run this from the 
 $ crewai run
 ```
 
-This command initializes the day_05 Crew, assembling the agents and assigning them tasks as defined in your configuration.
+This command initializes the day_06 Crew, assembling the agents and assigning them tasks as defined in your configuration.
 
 This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
 
 ## Understanding Your Crew
 
-The day_05 Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+The day_06 Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
 
 ## Support
 
